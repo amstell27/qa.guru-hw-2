@@ -47,9 +47,8 @@ public class PracticeTestsForm {
                 .setState(state)
                 .setCity(city)
                 .setBirthDate(day, month, year);
-        registrationPage.clickSubmit();
 
-        registrationPage.checkModalForm()
+        registrationPage.clickSubmit().checkModalForm()
                 .checkForm("Student Name", firstName + lastName)
                 .checkForm("Student Email", email)
                 .checkForm("Gender", gender)
