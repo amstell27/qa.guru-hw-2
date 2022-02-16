@@ -13,7 +13,7 @@ public class RegistrationPage {
     //components
     private CalendarComponent calendarComponent = new CalendarComponent();
     //locators
-    final SelenideElement
+    public static SelenideElement
             headerTitle = $(".practice-form-wrapper"),
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -39,23 +39,11 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setFirstName(String firstName) {
+    public RegistrationPage setMethodValue(SelenideElement locator, String param) {
 
-        firstNameInput.setValue(firstName);
+        locator.setValue(param);
         return this;
 
-    }
-
-    public RegistrationPage setLastName(String lastName) {
-
-        lastNameInput.setValue(lastName);
-        return this;
-    }
-
-    public RegistrationPage setEmail(String email) {
-
-        emailInput.setValue(email);
-        return this;
     }
 
     public RegistrationPage setGender(String gender) {
@@ -67,13 +55,6 @@ public class RegistrationPage {
 
         $("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
-
-    }
-
-    public RegistrationPage setMobile(String mobile) {
-
-        mobileInput.setValue(mobile);
-        return this;
 
     }
 
@@ -92,12 +73,6 @@ public class RegistrationPage {
     public RegistrationPage setImage(String image) {
 
         imageInput.uploadFromClasspath(image);
-        return this;
-    }
-
-    public RegistrationPage setAddress(String address) {
-
-        addressInput.setValue(address);
         return this;
     }
 
@@ -122,6 +97,7 @@ public class RegistrationPage {
         submit.click();
         return this;
     }
+
     public RegistrationPage checkModalForm() {
 
         modalTitle.shouldBe(text("Thanks for submitting the form"));

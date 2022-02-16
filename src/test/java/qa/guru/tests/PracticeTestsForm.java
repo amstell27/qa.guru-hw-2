@@ -1,9 +1,12 @@
 package qa.guru.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import qa.guru.pages.RegistrationPage;
+
+import static qa.guru.pages.RegistrationPage.*;
 
 public class PracticeTestsForm {
 
@@ -33,15 +36,15 @@ public class PracticeTestsForm {
     void automationPracticeTests() {
 
         registrationPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(email)
+                .setMethodValue(firstNameInput, firstName)
+                .setMethodValue(lastNameInput, lastName)
+                .setMethodValue(emailInput, email)
                 .setGender(gender)
-                .setMobile(mobile)
+                .setMethodValue(mobileInput, mobile)
                 .setSubject(subject)
                 .setHobby(hobby)
                 .setImage(image)
-                .setAddress(address)
+                .setMethodValue(addressInput, address)
                 .setState(state)
                 .setCity(city)
                 .setBirthDate(day, month, year);
