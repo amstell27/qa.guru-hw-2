@@ -13,7 +13,7 @@ public class RegistrationPage {
     //components
     private CalendarComponent calendarComponent = new CalendarComponent();
     //locators
-    private SelenideElement
+    final SelenideElement
             headerTitle = $(".practice-form-wrapper"),
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -27,7 +27,8 @@ public class RegistrationPage {
             addressInput = $("#currentAddress"),
             stateInput = $("#state"),
             cityInput = $("#city"),
-            submit = $("#submit");
+            submit = $("#submit"),
+            modalTitle = $(".modal-header");
 
 
     //actions
@@ -119,6 +120,11 @@ public class RegistrationPage {
     public RegistrationPage clickSubmit() {
 
         submit.click();
+        return this;
+    }
+    public RegistrationPage checkModalForm() {
+
+        modalTitle.shouldBe(text("Thanks for submitting the form"));
         return this;
     }
 
